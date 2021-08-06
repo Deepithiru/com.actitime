@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
@@ -38,9 +39,9 @@ public class DriverScript {
 
 		}
 
-		else if (browser.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver", "./atbrowser/geckodriver.exe");
-			driver = new FirefoxDriver();
+		else if (browser.equalsIgnoreCase("edge")) {
+			System.setProperty("webdriver.edge.driver", "./atbrowser/msedgedriver.exe");
+			driver = new EdgeDriver();
 
 		}
 
@@ -48,7 +49,7 @@ public class DriverScript {
 		driver.manage().timeouts().pageLoadTimeout(50, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		String url = prop.getProperty("url");
+		String url = prop.getProperty("qaurl");
 		driver.get(url);
 
 	}
